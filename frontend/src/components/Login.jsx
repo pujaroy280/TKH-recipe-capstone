@@ -14,23 +14,21 @@ const Login = ( { handleLogin } ) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post("http://localhost:3000/auth/login", { email, password })
-    .then(result => {console.log(result)
+    .then((result) => {
 
     // storing the user's token in the local storage of the browser so they can stay logged in
       const userToken="userToken";
       localStorage.setItem(userToken, result.data.token)
       const token= localStorage.getItem(userToken)
       if (token) {
-        console.log("token collected")
         handleLogin();
-        navigate("/user-profile")
+        navigate("/app/user-profile")
       }
       else{
-        console.log("token not collected")
-        setError('Failed to store token.');
+        throw new Error("Failed to store token.");
       }
     })
-    .catch(err => console.log(err))
+    .catch((err) => console.error(err));
   };
 
   return (
@@ -43,7 +41,7 @@ const Login = ( { handleLogin } ) => {
       {/* Form with input fields for email and password */}
       <form onSubmit={handleSubmit}>
         <div className="yummage-label">
-          <label>Email:</label>
+          <label>Email</label>
           {/* Input field for email */}
           <br></br>
           <input className='yummageinput' 
@@ -54,7 +52,7 @@ const Login = ( { handleLogin } ) => {
           value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div className="yummage-label">
-          <label>Password:</label>
+          <label>Password</label>
           {/* Input field for password */}
           <br></br>
           <input className='yummageinput' 
@@ -68,7 +66,7 @@ const Login = ( { handleLogin } ) => {
         <Link to="/signup" className="signup-login"> Sign up
                 </Link></p>
         {/* Submit button */}
-        <button type="submit"  className="yummage-submit btn">Login</button>
+        <button type="submit"  className="yummagesubmit btn">Login</button>
       </form>
       </div>
     </div>
