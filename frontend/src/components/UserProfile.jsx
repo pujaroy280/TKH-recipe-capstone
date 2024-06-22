@@ -57,7 +57,7 @@ const UserProfile = () => {
   const words = [
     { id: 0, value: "One day... I'm gonna make the onions cry." },
     { id: 1, value: "A recipe is a story that ends with a good meal." },
-    { id: 2, value: "The serect ingredient is always love." },
+    { id: 2, value: "The secret ingredient is always love." },
   ];
 
   useEffect(() => {
@@ -150,7 +150,7 @@ const UserProfile = () => {
               <div className="avatar mb-4">
                 <div className="w-24 h-24 rounded-full mt-8">
                   <img
-                    src="/src/assets/usericon.png"
+                    src="/public/usericon.png"
                     alt="User Profile"
                     className=""
                   />
@@ -175,7 +175,7 @@ const UserProfile = () => {
                 }}
                 className="mx-4"
               >
-                <img src="/src/assets/leftArrow.png" className="w-12" />
+                <img src="/public/leftArrow.png" className="w-12" />
               </button>
               <div className="mx-4 text-lg font-medium">
                 "&nbsp;{words[currentIndex].value}&nbsp;"
@@ -187,7 +187,7 @@ const UserProfile = () => {
                 }}
                 className="mx-4"
               >
-                <img src="/src/assets/rightArrow.png" className="w-12" />
+                <img src="/public/rightArrow.png" className="w-12" />
               </button>
             </div>
           </div>
