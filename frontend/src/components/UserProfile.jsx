@@ -16,7 +16,7 @@ const UserProfile = () => {
         const userToken = localStorage.getItem("userToken");
         if (userToken) {
           const response = await axios.get(
-            "http://localhost:3000/users/user-profile",
+            `${import.meta.env.VITE_YUMMAGE_API}/users/user-profile`,
             {
               headers: { Authorization: `Bearer ${userToken}` },
             }
@@ -42,7 +42,7 @@ const UserProfile = () => {
       const userToken = localStorage.getItem("userToken");
       if (userToken) {
         const response = await axios.get(
-          "http://localhost:3000/users/user-profile",
+          `${import.meta.env.VITE_YUMMAGE_API}/users/user-profile`,
           {
             headers: { Authorization: `Bearer ${userToken}` },
           }
@@ -150,7 +150,7 @@ const UserProfile = () => {
               <div className="avatar mb-4">
                 <div className="w-24 h-24 rounded-full mt-8">
                   <img
-                    src="/public/usericon.png"
+                    src="/usericon.png"
                     alt="User Profile"
                     className=""
                   />
@@ -159,7 +159,7 @@ const UserProfile = () => {
               <h2 className="font-bold text-black my-8 text-2xl">
                 {user.name}
               </h2>
-              <p style={{ fontFamily: "Montserrat" }}>{user.pronouns}</p>
+              {/* <p style={{ fontFamily: "Montserrat" }}>{user.pronouns}</p> */}
               <button
                 onClick={() => handleModal("create")}
                 className="navsignup mb-4"
@@ -175,7 +175,7 @@ const UserProfile = () => {
                 }}
                 className="mx-4"
               >
-                <img src="/public/leftArrow.png" className="w-12" />
+                <img src="/leftArrow.png" className="w-12" />
               </button>
               <div className="mx-4 text-lg font-medium">
                 "&nbsp;{words[currentIndex].value}&nbsp;"
@@ -187,7 +187,7 @@ const UserProfile = () => {
                 }}
                 className="mx-4"
               >
-                <img src="/public/rightArrow.png" className="w-12" />
+                <img src="/rightArrow.png" className="w-12" />
               </button>
             </div>
           </div>
